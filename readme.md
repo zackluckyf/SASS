@@ -1,3 +1,9 @@
+#To Launch
+
+1. Clone Repo
+2. Launch src/app using your favorite server
+3. Compare the included to SASS to the app
+
 #SASS
 
 ##Variables
