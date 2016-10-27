@@ -1,15 +1,51 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
-$font-size: 10px;
+$base-font-size: 10px;
+
+@mixin font-large{
+  font:{
+    size: 14px;
+    family: sans-serif;
+    weight: bold;
+  }
+}
+
+@mixin rounded-corners-all($size){
+  border-radius: $size;
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+}
+
+$app-width: 900px;
+@function column-width($cols){
+  @return ($app-width / $cols) - ($cols * 5px);
+}
 
 html{
   font-family: $font-stack;
   color: $primary-color;
-  font-size: $font-size+2 + (1*2);
+  font-size: $base-font-size+2 + (1*2);
+}
+
+input{
+  display: block;
+}
+
+.spacing{
+  margin: 10px 0px;
 }
 
 h1{
-  font-size: $font-size + (3*4);
+  font-size: $base-font-size*2;
+  @if $base-font-size*2 > 14px{
+    color: Blue;
+  }
+  @else if $base-font-size*2 < 14px{
+    color: Red;
+  }
+  @else{
+    color: Green;
+  }
 }
 
 $secondary-color: lighten($primary-color, 10%);
@@ -21,6 +57,7 @@ p{
 $root: '/images/';
 
 #form{
+  @include font-large;
   background: url('#{$root}background.jpg');
 }
 
@@ -28,4 +65,38 @@ $name: 'my-class';
 
 .#{$name}{
   color: blue;
+}
+
+nav{
+  font-size: $base-font-size;
+  font-weight: bold;
+  float: right;
+  ul{
+    list-style-type: none;
+    li{
+      float: left;
+      margin: 2px;
+    }
+  }
+}
+
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.button{
+  @include rounded-corners-all(5px);
+  color: Black;
+  font:{
+    family: Verdana, Helvetica, sans-serif;
+    size: 14px;
+  }
+}
+
+.submit-button{
+  @extend .button;
+  border: 1px Black solid;
 }

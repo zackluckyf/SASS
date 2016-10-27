@@ -3,16 +3,52 @@ html {
   color: #333;
   font-size: 14px; }
 
+input {
+  display: block; }
+
+.spacing {
+  margin: 10px 0px; }
+
 h1 {
-  font-size: 22px; }
+  font-size: 20px;
+  color: Blue; }
 
 p {
   color: #4d4d4d; }
 
 #form {
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: bold;
   background: url("/images/background.jpg"); }
 
 .my-class {
   color: blue; }
+
+nav {
+  font-size: 10px;
+  font-weight: bold;
+  float: right; }
+  nav ul {
+    list-style-type: none; }
+    nav ul li {
+      float: left;
+      margin: 2px; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.button, .submit-button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  color: Black;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 14px; }
+
+.submit-button {
+  border: 1px Black solid; }
 
 /*# sourceMappingURL=style.css.map */
