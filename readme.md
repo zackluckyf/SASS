@@ -90,7 +90,7 @@ Example
 }
 
 .submit-button{
-  \@extend .button;
+  @extend .button;
   border: 1px Black solid;
 }
 
@@ -98,7 +98,7 @@ Example
 
 Example
 
-\@mixin font-large{
+@mixin font-large{
   font:{
     size: 14px;
     family: sans-serif;
@@ -107,12 +107,12 @@ Example
 }
 
 \#form{
-  \@include font-large;
+  @include font-large;
 }
 
 Example 2 with parameters, supplied with optional default values
 
-\@mixin rounded-corners-all($size: 5px){
+@mixin rounded-corners-all($size: 5px){
   border-radius: $size;
   -webkit-border-radius: $size;
   -moz-border-radius: $size;
@@ -123,33 +123,33 @@ Example 2 with parameters, supplied with optional default values
 Example
 
 $app-width: 900px;
-\@function column-width($cols){
-  \@return ($app-width / $cols) - ($cols * 5px);
+@function column-width($cols){
+  @return ($app-width / $cols) - ($cols * 5px);
 }
 
-##\@if
+##@if
 
 Example
 
 h1{
-  \@if $size > 14px{
+  @if $size > 14px{
     color: Blue;
   }
-  \@else if $size < 14px{
+  @else if $size < 14px{
     color: Red;
   }
-  \@else{
+  @else {
     color: Green;
   }
 }
 
-##\@for
+##@for
 
 Example
 
 $page-width: 1000px;
 
-\@for $col from 1 through 4 {
+@for $col from 1 through 4 {
   .col#{$col} {
     width: $page-width / $col;
   }
