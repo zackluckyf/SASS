@@ -4,13 +4,13 @@
 
 Example variable declaration:
 
-$nameofvar: value;
+  $nameofvar: value;
 
 value can be colors units or lists
 
 ##Operations
 
-Example font-size: 4px + 4;   
+  Example font-size: 4px + 4;   
 
 // 8
 
@@ -20,194 +20,195 @@ works intuitively and follows PEMDAS
 
 Example lighten
 
-color: lighten(10%, color);
+  color: lighten(10%, color);
 
 ##Other Functions
 
 Example quote
 
-$quoted: quote($sometext)
+  $quoted: quote($sometext)
 
 ##String Interpolation
 
 Example
 
-$root: '/images/'
+  $root: '/images/'
 
-\#form{
+  \#form{
 
-  background: url('#{$root}background.jpg');
+    background: url('#{$root}background.jpg');
 
-}
+  }
 
 background becomes url('/images/background.jpg')
 
 Example 2
 
-$name: 'my-class';
+  $name: 'my-class';
 
-.#{$name}{
+  .#{$name}{
 
-  color: blue;
+    color: blue;
 
-}
+  }
 
 ##Nested rules
 
 Example
 
-nav{
+  nav{
 
-  font-size: $base-font-size;
+    font-size: $base-font-size;
 
-  font-weight: bold;
+    font-weight: bold;
 
-  float: right;
+    float: right;
 
-  ul{
+    ul{
 
-    list-style-type: none;
+      list-style-type: none;
 
-    li{
+      li{
 
-      float: left;
+        float: left;
 
-      margin: 2px;
+        margin: 2px;
+
+      }
+
+    }
+
+Example 2 with & for parent selector to attach to parent
+
+  a{
+
+    text-decoration: none;
+
+    &:hover{
+
+      text-decoration: underline;
 
     }
 
   }
 
-Example 2 with & for parent selector to attach to parent
-
-a{
-
-  text-decoration: none;
-
-  &:hover{
-
-    text-decoration: underline;
-
-  }
-
-}
-
 Example 3 with nested properties
-.button{
 
-  font:{
+  .button{
 
-    family: Verdana, Helvetica, sans-serif;
+    font:{
 
-    size: 14px;
+      family: Verdana, Helvetica, sans-serif;
+
+      size: 14px;
+
+    }
 
   }
-
-}
 
 ##Extend
 
 Example
 
-.button {
+  .button {
 
-  color: Black;
+    color: Black;
 
-}
+  }
 
-.submit-button{
+  .submit-button{
 
-  @extend .button;
+    @extend .button;
 
-  border: 1px Black solid;
+    border: 1px Black solid;
 
-}
+  }
 
 ##Mixin
 
 Example
 
-@mixin font-large{
+  @mixin font-large{
 
-  font:{
+    font:{
 
-    size: 14px;
+      size: 14px;
 
-    family: sans-serif;
+      family: sans-serif;
 
-    weight: bold;
+      weight: bold;
+
+    }
 
   }
 
-}
+  \#form{
 
-\#form{
+    @include font-large;
 
-  @include font-large;
-
-}
+  }
 
 Example 2 with parameters, supplied with optional default values
 
-@mixin rounded-corners-all($size: 5px){
+  @mixin rounded-corners-all($size: 5px){
 
-  border-radius: $size;
+    border-radius: $size;
 
-  -webkit-border-radius: $size;
+    -webkit-border-radius: $size;
 
-  -moz-border-radius: $size;
+    -moz-border-radius: $size;
 
-}
+  }
 
 ##Value Calculations
 
 Example
 
-$app-width: 900px;
+  $app-width: 900px;
 
-@function column-width($cols){
+  @function column-width($cols){
 
-  @return ($app-width / $cols) - ($cols * 5px);
+    @return ($app-width / $cols) - ($cols * 5px);
 
-}
+  }
 
 ##@if
 
 Example
 
-h1{
+  h1{
 
-  @if $size > 14px{
+    @if $size > 14px{
 
-    color: Blue;
+      color: Blue;
+
+    }
+
+    @else if $size < 14px{
+
+      color: Red;
+
+    }
+    @else {
+
+      color: Green;
+
+    }
 
   }
-
-  @else if $size < 14px{
-
-    color: Red;
-
-  }
-  @else {
-
-    color: Green;
-
-  }
-
-}
 
 ##@for
 
 Example
 
-$page-width: 1000px;
+  $page-width: 1000px;
 
-@for $col from 1 through 4 {
+  @for $col from 1 through 4 {
 
-  .col#{$col} {
+    .col#{$col} {
 
-    width: $page-width / $col;
+      width: $page-width / $col;
+
+    }
 
   }
-  
-}
